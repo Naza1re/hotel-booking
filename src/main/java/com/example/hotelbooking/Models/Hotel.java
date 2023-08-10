@@ -1,17 +1,15 @@
 package com.example.hotelbooking.Models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "Hotel")
 public class Hotel {
-    public Hotel(String name, String city, Room room, String street) {
+    public Hotel(String name, String city, String street) {
         this.name = name;
         this.city = city;
-        this.room = room;
         this.street = street;
     }
 
@@ -25,8 +23,9 @@ public class Hotel {
     public Hotel(){
 
     }
-
-    private Room room;
+    @Column(name = "room")
+    @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL)
+    private List<Room> rooms;
 
     public String getName() {
         return name;
