@@ -10,7 +10,7 @@ import org.hibernate.cfg.Configuration;
 public class DBSession {
     public static Session getSession(){
         SessionFactory factory = new Configuration()
-                .configure("hibernate.config.xml")
+                .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Hotel.class)
                 .addAnnotatedClass(User.class)
                 .addAnnotatedClass(Room.class)
