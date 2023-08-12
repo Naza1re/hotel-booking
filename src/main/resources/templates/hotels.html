@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All hotels</title>
+</head>
+<body>
+<a>Hotels</a>
+<table>
+    <tr>
+        <th>Название</th>
+        <th>Город</th>
+        <th>Адрес</th>
+    </tr>
+
+    <tr th:each="hotel : ${hotels}">
+        <td th:text="${hotel.name}"></td>
+        <td th:text="${hotel.city}"></td>
+        <td th:text="${hotel.street}"></td>
+    </tr>
+</table>
+
+
+</body>
+</html>
