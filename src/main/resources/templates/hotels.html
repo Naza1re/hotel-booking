@@ -5,6 +5,9 @@
     <title>All hotels</title>
 </head>
 <body>
+<header th:insert="blogs/header :: header">
+
+</header>
 <a>Hotels</a>
 <table>
     <tr>
@@ -17,6 +20,7 @@
         <td th:text="${hotel.name}"></td>
         <td th:text="${hotel.city}"></td>
         <td th:text="${hotel.street}"></td>
+        <td ><a th:href="@{/hotels/rooms/{id}(id=${hotel.id})}">Комнаты</a></td>
     </tr>
 </table>
 

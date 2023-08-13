@@ -1,10 +1,67 @@
-<!DOCTYPE html>
+<div th:fragment="header">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books Website</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #3498db;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-left h1 a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        .header-right ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-right li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .header-right li a:hover {
+            color: #f39c12;
+        }
+    </style>
 </head>
 <body>
 
+<header>
+    <div class="header-left">
+        <h1><a href="/">Hotels</a></h1>
+
+    </div>
+    <div class="header-right">
+        <ul>
+            <li><a href="/addHotel">Добавить отель</a></li>
+            <li><a href="/adduserd">Добавить пользователя</a></li>
+            <li><a href="/hotels">Отели</a></li>
+            <li><a href="/rooms">Комнаты</a></li>
+        </ul>
+    </div>
+</header>
 </body>
 </html>
+</div>

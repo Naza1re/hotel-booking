@@ -3,8 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
 </head>
 <body>
+<h1 th:text="${hotel.name}"></h1>
+<div>
+    <p>Город : <span th:text="${hotel.city}"></span></p>
+    <p>Адрес : <span th:text="${hotel.street}"></span></p>
+</div>
+
+
+<table>
+    <tr>
+        <th>Номер комнаты</th>
+        <th>Количество мест</th>
+        <th>Айди комнаты</th>
+    </tr>
+
+    <tr th:each="room : ${rooms}">
+        <td th:text="${room.number}"></td>
+        <td th:text="${room.seats}"></td>
+        <td th:text ="${room.id}"></td>
+    </tr>
+</table>
 
 </body>
 </html>
