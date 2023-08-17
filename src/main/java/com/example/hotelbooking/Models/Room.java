@@ -26,10 +26,30 @@ public class Room {
     @Id
     @Column(name = "id")
     private Long id;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
+
     @Column(name = "number")
     private int number;
     @Column(name = "seats")
     private int seats;
+    @Column(name = "description")
+    private String description;
+
 
     @ManyToOne
     @JoinColumn(name = "hotel_id")

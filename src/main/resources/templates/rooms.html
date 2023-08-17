@@ -6,6 +6,9 @@
 
 </head>
 <body>
+<header th:insert="blogs/header :: header">
+
+</header>
 <h1 th:text="${hotel.name}"></h1>
 <div>
     <p>Город : <span th:text="${hotel.city}"></span></p>
@@ -18,12 +21,16 @@
         <th>Номер комнаты</th>
         <th>Количество мест</th>
         <th>Айди комнаты</th>
+        <th>Описание</th>
+        <th>Бронирование</th>
     </tr>
 
     <tr th:each="room : ${rooms}">
         <td th:text="${room.number}"></td>
         <td th:text="${room.seats}"></td>
         <td th:text ="${room.id}"></td>
+        <td th:text="${room.description}"></td>
+        <td ><a th:href="@{/booking/{id}(id=${room.id})}">Забронировать</a></td>
     </tr>
 </table>
 

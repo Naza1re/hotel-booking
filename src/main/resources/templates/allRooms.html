@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Все комнаты</title>
+</head>
+<body>
+<header th:insert="blogs/header :: header">
+
+</header>
+<table>
+  <tr>
+    <th>Номер комнаты</th>
+    <th>Количество мест</th>
+    <th>Айди комнаты</th>
+  </tr>
+
+  <tr th:each="rooms : ${room}">
+    <td th:text="${room.number}"></td>
+    <td th:text="${room.seats}"></td>
+    <td th:text ="${room.id}"></td>
+  </tr>
+</table>
+
+
+</body>
+</html>
