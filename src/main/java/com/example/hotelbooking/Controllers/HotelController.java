@@ -1,7 +1,6 @@
 package com.example.hotelbooking.Controllers;
 
 import com.example.hotelbooking.DataBaseConnection.DBSession;
-import com.example.hotelbooking.DataBaseConnection.HotelDB;
 import com.example.hotelbooking.Models.Hotel;
 import com.example.hotelbooking.Models.Room;
 import org.hibernate.Session;

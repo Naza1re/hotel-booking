@@ -13,12 +13,14 @@
     <th>Номер комнаты</th>
     <th>Количество мест</th>
     <th>Айди комнаты</th>
+    <th>Отель</th>
   </tr>
 
-  <tr th:each="rooms : ${room}">
-    <td th:text="${room.number}"></td>
-    <td th:text="${room.seats}"></td>
-    <td th:text ="${room.id}"></td>
+  <tr th:each="rooms : ${rooms}">
+    <td th:text="${rooms.number}"></td>
+    <td th:text="${rooms.seats}"></td>
+    <td th:text ="${rooms.id}"></td>
+    <td th:text ="${rooms.hotel}"></td>
   </tr>
 </table>
 
