@@ -24,6 +24,7 @@ public class Reservation {
         this.room = room;
     }
 
+
     public User getUser() {
         return user;
     }

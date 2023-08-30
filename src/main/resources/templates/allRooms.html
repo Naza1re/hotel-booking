@@ -3,27 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <title>Все комнаты</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+
+    h1 {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+    }
+
+
+    table {
+      width: 80%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #333;
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
 <header th:insert="blogs/header :: header">
-
 </header>
+
+
+<h1>Все комнаты</h1>
+
+
 <table>
   <tr>
     <th>Номер комнаты</th>
     <th>Количество мест</th>
-    <th>Айди комнаты</th>
     <th>Отель</th>
+    <th>Бронирование</th>
   </tr>
 
-  <tr th:each="rooms : ${rooms}">
-    <td th:text="${rooms.number}"></td>
-    <td th:text="${rooms.seats}"></td>
-    <td th:text ="${rooms.id}"></td>
-    <td th:text ="${rooms.hotel.name}"></td>
+  <tr th:each="room : ${rooms}">
+    <td th:text="${room.number}">101</td>
+    <td th:text="${room.seats}">2</td>
+    <td th:text="${room.hotel.name}">Отель</td>
+    <td><a th:href="@{/booking/{id}(id=${room.id})}" class="btn-book">Забронировать</a></td>
   </tr>
 </table>
-
-
 </body>
 </html>

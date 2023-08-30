@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Room</title>
+</head>
+<body>
+<header>
+
+</header>
+<div>
+    <h2>Add Room</h2>
+    <form th:action="@{'/addRooms/' + ${hotel.id}}" method="post">
+        <input type="hidden" name="hotel_id" th:value="${hotel.id}">
+        <label for="number">Room Number:</label>
+        <input type="text" id="number" name="number" required><br>
+
+        <label for="seats">Number of Seats:</label>
+        <input type="text" id="seats" name="seats" required><br>
+
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" required><br>
+
+        <button type="submit">Add Room</button>
+    </form>
+</div>
+</body>
+</html>

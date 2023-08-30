@@ -10,10 +10,13 @@ import org.hibernate.query.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 @Controller
+
 public class RoomController {
     @GetMapping("/rooms")
     public String roomsPage(@PathVariable Long id, Model model){
@@ -29,6 +32,17 @@ public class RoomController {
             session.getTransaction().commit();
         return "rooms";
     }
+    @PostMapping("/addRooms/{id}")
+    public String addRoom(@ModelAttribute Room room,@PathVariable Long id) {
+        System.out.println("Вход в метод");
+        Session session = DBSession.getSession();
+        session.beginTransaction();
+        Hotel hotel = HotelDB.getHotelById(id);
+        room.setHotel(hotel);
+        session.save(room);
+        session.getTransaction().commit();;
+        return "main";
+    }
     @GetMapping("/allRooms")
     public String allRoomsPage(Model model){
         Session session = DBSession.getSession();
@@ -42,14 +56,27 @@ public class RoomController {
     }
     @GetMapping("/booking/{id}")
     public String showBookingPage(@PathVariable Long id, Model model) {
-            Session session = DBSession.getSession();
-            session.beginTransaction();
-            Room room = RoomDB.getRoomById(id);
-            model.addAttribute("room",room);
-
-            session.getTransaction().commit();
+        Session session = DBSession.getSession();
+        session.beginTransaction();
+        Room room = RoomDB.getRoomById(id);
+        model.addAttribute("room",room);
+        session.getTransaction().commit();
         return "booking";
     }
+    @GetMapping("/addRooms/{id}")
+    public String viewHotelDetails(@PathVariable Long id, Model model) {
+        Session session = DBSession.getSession();
+        session.beginTransaction();
+        Hotel hotel = HotelDB.getHotelById(id);
+        model.addAttribute("hotel", hotel);
+        session.getTransaction().commit();
+        return "add-rooms";
+    }
+
+
+
+
+
 
 
 

@@ -2,37 +2,97 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Название отеля</title>
+    <style>
 
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+
+        h1 {
+            color: #000000;
+            padding: 20px;
+        }
+
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+
+
+        a.btn-book {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        a.btn-book:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
 <header th:insert="blogs/header :: header">
 
 </header>
-<h1 th:text="${hotel.name}"></h1>
-<div>
-    <p>Город : <span th:text="${hotel.city}"></span></p>
-    <p>Адрес : <span th:text="${hotel.street}"></span></p>
+
+
+<h1 th:text="${hotel.name}">Название отеля</h1>
+
+
+<div class="container">
+    <div>
+        <p>Город: <span th:text="${hotel.city}">Город</span></p>
+        <p>Адрес: <span th:text="${hotel.street}">Адрес</span></p>
+    </div>
+
+    <table>
+        <tr>
+            <th>Номер комнаты</th>
+            <th>Количество мест</th>
+            <th>Описание</th>
+            <th>Бронирование</th>
+        </tr>
+
+        <tr th:each="room : ${rooms}">
+            <td th:text="${room.number}">101</td>
+            <td th:text="${room.seats}">2</td>
+            <td th:text="${room.description}"></td>
+            <td><a th:href="@{/booking/{id}(id=${room.id})}" class="btn-book">Забронировать</a></td>
+        </tr>
+    </table>
+    <a th:href="@{/addRooms/{id}(id=${hotel.id})}">Добавить комнату</a>
 </div>
+<footer>
 
-
-<table>
-    <tr>
-        <th>Номер комнаты</th>
-        <th>Количество мест</th>
-        <th>Айди комнаты</th>
-        <th>Описание</th>
-        <th>Бронирование</th>
-    </tr>
-
-    <tr th:each="room : ${rooms}">
-        <td th:text="${room.number}"></td>
-        <td th:text="${room.seats}"></td>
-        <td th:text ="${room.id}"></td>
-        <td th:text="${room.description}"></td>
-        <td ><a th:href="@{/booking/{id}(id=${room.id})}">Забронировать</a></td>
-    </tr>
-</table>
-
+</footer>
 </body>
 </html>

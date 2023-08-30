@@ -2,28 +2,68 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>All hotels</title>
+    <title>Все отели</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
 <header th:insert="blogs/header :: header">
-
 </header>
-<a>Hotels</a>
 <table>
     <tr>
         <th>Название</th>
         <th>Город</th>
         <th>Адрес</th>
+        <th>Детали</th>
     </tr>
 
     <tr th:each="hotel : ${hotels}">
-        <td th:text="${hotel.name}"></td>
-        <td th:text="${hotel.city}"></td>
-        <td th:text="${hotel.street}"></td>
-        <td ><a th:href="@{/hotels/rooms/{id}(id=${hotel.id})}">Комнаты</a></td>
+        <td th:text="${hotel.name}">Отель</td>
+        <td th:text="${hotel.city}">Город</td>
+        <td th:text="${hotel.street}">Адрес</td>
+        <td><a th:href="@{/hotels/rooms/{id}(id=${hotel.id})}">Комнаты</a></td>
     </tr>
 </table>
-
-
 </body>
 </html>
