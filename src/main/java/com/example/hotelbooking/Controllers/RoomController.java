@@ -37,8 +37,7 @@ public class RoomController {
         System.out.println("Вход в метод");
         Session session = DBSession.getSession();
         session.beginTransaction();
-        Hotel hotel = HotelDB.getHotelById(id);
-        room.setHotel(hotel);
+        room.setHotel(HotelDB.getHotelById(id));
         session.save(room);
         session.getTransaction().commit();;
         return "main";

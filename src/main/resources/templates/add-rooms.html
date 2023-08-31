@@ -3,23 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Room</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
 </head>
 <body>
 <header>
-
+    <h1>Add Room</h1>
 </header>
-<div>
+<div class="container">
     <h2>Add Room</h2>
     <form th:action="@{'/addRooms/' + ${hotel.id}}" method="post">
-        <input type="hidden" name="hotel_id" th:value="${hotel.id}">
         <label for="number">Room Number:</label>
-        <input type="text" id="number" name="number" required><br>
+        <input type="text" id="number" name="number" required>
 
         <label for="seats">Number of Seats:</label>
-        <input type="text" id="seats" name="seats" required><br>
+        <input type="text" id="seats" name="seats" required>
 
         <label for="description">Description:</label>
-        <input type="text" id="description" name="description" required><br>
+        <input type="text" id="description" name="description" required>
 
         <button type="submit">Add Room</button>
     </form>
