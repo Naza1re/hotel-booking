@@ -40,7 +40,7 @@ public class RoomController {
         room.setHotel(HotelDB.getHotelById(id));
         session.save(room);
         session.getTransaction().commit();;
-        return "main";
+        return "hotels";
     }
     @GetMapping("/allRooms")
     public String allRoomsPage(Model model){
@@ -65,12 +65,16 @@ public class RoomController {
     @GetMapping("/addRooms/{id}")
     public String viewHotelDetails(@PathVariable Long id, Model model) {
         Session session = DBSession.getSession();
+        System.out.println(" Вход в базу");
         session.beginTransaction();
         Hotel hotel = HotelDB.getHotelById(id);
         model.addAttribute("hotel", hotel);
         session.getTransaction().commit();
         return "add-rooms";
+
     }
+
+
 
 
 

@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class UserController {
 
-    @GetMapping("/adduser")
+    @GetMapping("/addUser")
     public String addUserPage(){
         return "add-user";
     }
-    @PostMapping("/adduser")
+    @PostMapping("/addUser")
     public String addUser(@ModelAttribute User user){
         Session session = DBSession.getSession();
         session.beginTransaction();

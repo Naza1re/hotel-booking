@@ -60,10 +60,10 @@
 <h1>Бронирование комнаты</h1>
 
 <div class="room-info">
-    <p class="author">Айди комнаты: <span th:text="${room.id}">1001</span></p>
+    <p class="author">Отель: <span th:text="${room.hotel.name}"></span></p>
     <p class="author">Количество мест: <span th:text="${room.seats}">2</span></p>
     <p class="author">Номер комнаты: <span th:text="${room.number}">101</span></p>
-    <p class="author">Описание комнаты: <span th:text="${room.description}">Уютная комната с видом на город</span></p>
+    <p class="author">Описание комнаты: <span th:text="${room.description}"></span></p>
 </div>
 
 <form action="" method="post">
