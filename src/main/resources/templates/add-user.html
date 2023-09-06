@@ -8,8 +8,19 @@
 <header th:insert="blogs/header :: header">
 
 </header>
-<form action="/addUser" method="post">
 
+
+<form action="/addUser" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="phone_Number">Phone number:</label>
+    <input type="text" id="phone_Number" name="phone_Number" required>
+
+    <label for="Mail">Mail:</label>
+    <input type="text" id="Mail" name="Mail" required>
+
+    <button type="submit">Add user</button>
 </form>
 
 </body>
