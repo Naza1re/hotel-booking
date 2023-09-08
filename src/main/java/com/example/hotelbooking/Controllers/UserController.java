@@ -3,7 +3,6 @@ package com.example.hotelbooking.Controllers;
 import com.example.hotelbooking.DataBaseConnection.DBSession;
 import com.example.hotelbooking.DataBaseConnection.UserDB;
 import com.example.hotelbooking.Models.User;
-import jakarta.persistence.Entity;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Controller;
@@ -42,16 +41,17 @@ public class UserController {
         return "all-users";
     }
 
-    @GetMapping("/user{id}")
+    @GetMapping("/user/{id}")
     public String profile(@PathVariable Long id,Model model){
         Session session = DBSession.getSession();
         session.beginTransaction();
         User user = UserDB.getUserById(id);
-        
         model.addAttribute("user",user);
         session.getTransaction().commit();
         return "user-details";
     }
+
+
 
 
 

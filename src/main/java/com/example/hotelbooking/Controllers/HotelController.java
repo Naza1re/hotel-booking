@@ -32,7 +32,6 @@ public class HotelController{
         List<Hotel> hotels = session.createQuery("FROM Hotel", Hotel.class).list();
         model.addAttribute("hotels",hotels);
         session.getTransaction().commit();
-
         return "hotels";
     }
     @GetMapping("/hotels/rooms/{id}")

@@ -66,9 +66,13 @@
     <p class="author">Описание комнаты: <span th:text="${room.description}"></span></p>
 </div>
 
-<form action="" method="post">
-    <label for="name">Введите ваше имя:</label>
-    <input type="text" id="name" name="name" required>
+<form th:action="@{'/booking/' + ${id}}" method="post">
+    <label for="user">Введите имя пользователя :</label>
+    <input type="text" id="user" name="user" required>
+    <label for="arrival_date">Введите день заезда :</label>
+    <input type="text" id="arrival_date" name="arrival_date" required>
+    <label for="data_of_departure">Введите день выезда :</label>
+    <input type="text" id="data_of_departure" name="data_of_departure" required>
     <br>
     <input type="submit" value="Забронировать">
 </form>

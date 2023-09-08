@@ -62,10 +62,11 @@ public class RoomController {
         session.getTransaction().commit();
         return "booking";
     }
+
+
     @GetMapping("/addRooms/{id}")
     public String viewHotelDetails(@PathVariable Long id, Model model) {
         Session session = DBSession.getSession();
-        System.out.println(" Вход в базу");
         session.beginTransaction();
         Hotel hotel = HotelDB.getHotelById(id);
         model.addAttribute("hotel", hotel);
