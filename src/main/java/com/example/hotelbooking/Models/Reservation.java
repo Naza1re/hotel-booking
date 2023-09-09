@@ -62,4 +62,19 @@ public class Reservation {
         this.room = room;
     }
 
+    public String getArrival_date() {
+        return arrival_date;
+    }
+
+    public void setArrival_date(String arrival_date) {
+        this.arrival_date = arrival_date;
+    }
+
+    public String getDate_of_departure() {
+        return date_of_departure;
+    }
+
+    public void setDate_of_departure(String date_of_departure) {
+        this.date_of_departure = date_of_departure;
+    }
 }

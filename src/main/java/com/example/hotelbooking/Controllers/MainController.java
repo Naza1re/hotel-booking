@@ -17,7 +17,8 @@ public class MainController {
     public String mainPage(Model model){
         Session session = DBSession.getSession();
         session.beginTransaction();
-        Query<Room> query = session.createQuery("FROM Room" , Room.class);
+        String sqlQuery = "FROM Room r WHERE r.id NOT IN (SELECT res.room.id FROM Reservation res)";
+        Query<Room> query = session.createQuery(sqlQuery, Room.class);
         List<Room> rooms = query.list();
         System.out.println(rooms);
         model.addAttribute("rooms",rooms);

@@ -1,6 +1,7 @@
 package com.example.hotelbooking.DataBaseConnection;
 
 import com.example.hotelbooking.Models.Hotel;
+import com.example.hotelbooking.Models.Reservation;
 import com.example.hotelbooking.Models.Room;
 import com.example.hotelbooking.Models.User;
 import org.hibernate.Session;
@@ -14,6 +15,7 @@ public class DBSession {
                 .addAnnotatedClass(Hotel.class)
                 .addAnnotatedClass(User.class)
                 .addAnnotatedClass(Room.class)
+                .addAnnotatedClass(Reservation.class)
                 .buildSessionFactory();
 
 

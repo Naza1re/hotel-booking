@@ -2,6 +2,7 @@ package com.example.hotelbooking.Controllers;
 
 import com.example.hotelbooking.DataBaseConnection.DBSession;
 import com.example.hotelbooking.DataBaseConnection.UserDB;
+import com.example.hotelbooking.Models.Reservation;
 import com.example.hotelbooking.Models.User;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -42,14 +43,22 @@ public class UserController {
     }
 
     @GetMapping("/user/{id}")
-    public String profile(@PathVariable Long id,Model model){
+    public String profile(@PathVariable Long id, Model model) {
         Session session = DBSession.getSession();
         session.beginTransaction();
         User user = UserDB.getUserById(id);
-        model.addAttribute("user",user);
+
+
+        Query<Reservation> query = session.createQuery("FROM Reservation WHERE user.id = :id", Reservation.class);
+        query.setParameter("id", id);
+
+        List<Reservation> reservations = query.list();
+        model.addAttribute("user", user);
+        model.addAttribute("reservations", reservations);
         session.getTransaction().commit();
         return "user-details";
     }
+
 
 
 

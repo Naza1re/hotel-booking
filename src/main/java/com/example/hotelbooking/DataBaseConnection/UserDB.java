@@ -13,11 +13,12 @@ public class UserDB {
         session.getTransaction().commit();
         return user;
     }
-    public static User getUserByName(String name){
+    public static User getUserByName(String name1){
         Session session = DBSession.getSession();
         session.beginTransaction();
         Query<User> query = session.createQuery("from User where name = :name1",User.class);
-        query.setParameter("name1",name);
+        System.out.println(query);
+        query.setParameter("name1",name1);
         User user = query.uniqueResult();
         return user;
     }
