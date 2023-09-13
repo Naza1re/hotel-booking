@@ -23,8 +23,6 @@ public class MainController {
         System.out.println(rooms);
         model.addAttribute("rooms",rooms);
         session.getTransaction().commit();
-
-
         return "main";
     }
 

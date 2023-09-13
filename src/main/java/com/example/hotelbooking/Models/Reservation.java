@@ -1,9 +1,16 @@
 package com.example.hotelbooking.Models;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-
+@Getter
+@Setter
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "reservation")
 public class Reservation {
     @Id
@@ -28,8 +35,7 @@ public class Reservation {
     @Column(name = "date_of_departure")
     private String date_of_departure;
 
-    public Reservation() {
-    }
+
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -46,35 +52,6 @@ public class Reservation {
         this.room = room;
     }
 
-    public User getUser() {
-        return user;
-    }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
 
-    public Room getRoom() {
-        return room;
-    }
-
-    public void setRoom(Room room) {
-        this.room = room;
-    }
-
-    public String getArrival_date() {
-        return arrival_date;
-    }
-
-    public void setArrival_date(String arrival_date) {
-        this.arrival_date = arrival_date;
-    }
-
-    public String getDate_of_departure() {
-        return date_of_departure;
-    }
-
-    public void setDate_of_departure(String date_of_departure) {
-        this.date_of_departure = date_of_departure;
-    }
 }

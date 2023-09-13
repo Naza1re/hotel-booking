@@ -1,8 +1,21 @@
 package com.example.hotelbooking.Models;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+
+import java.util.HashSet;
+
+import java.util.Set;
+
+@Getter
+@Setter
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "user")
 public class User {
     @Id
@@ -10,51 +23,17 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public String getName() {
-        return name;
-    }
-    public User(){
-    }
-
-    public User(String name, String phoneNumber, String mail) {
-        this.name = name;
-        this.phone_Number = phoneNumber;
-        this.mail = mail;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPhoneNumber() {
-        return phone_Number;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phone_Number = phoneNumber;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
     @Column(name = "name")
     private String name;
+
     @Column(name = "phone_Number")
     private String phone_Number;
 
     @Column(name = "mail")
     private String mail;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @Column(name = "password",length = 1000)
+    private String password;
 
-    public Long getId() {
-        return id;
-    }
+
 }
