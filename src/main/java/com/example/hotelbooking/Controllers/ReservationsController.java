@@ -1,16 +1,15 @@
 package com.example.hotelbooking.Controllers;
 
 import com.example.hotelbooking.DataBaseConnection.DBSession;
+import com.example.hotelbooking.DataBaseConnection.ReservationDB;
 import com.example.hotelbooking.DataBaseConnection.RoomDB;
 import com.example.hotelbooking.DataBaseConnection.UserDB;
 import com.example.hotelbooking.Models.Reservation;
 import com.example.hotelbooking.Models.User;
 import org.hibernate.Session;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ReservationsController {
@@ -29,6 +28,17 @@ public class ReservationsController {
         session.getTransaction().commit();
         return "main";
     }
+    @GetMapping("user/{id}/reservationsDetails")
+    public String getReservationDetails(@PathVariable Long id, Model model){
+
+        Session session = DBSession.getSession();
+        session.beginTransaction();
+        Reservation reservation = ReservationDB.getReservationById(id);
+        model.addAttribute("reservation",reservation);
+        return "reservation-details";
+    }
+
+
 
 
 

@@ -34,7 +34,6 @@ public class RoomController {
     }
     @PostMapping("/addRooms/{id}")
     public String addRoom(@ModelAttribute Room room,@PathVariable Long id) {
-        System.out.println("Вход в метод");
         Session session = DBSession.getSession();
         session.beginTransaction();
         room.setHotel(HotelDB.getHotelById(id));
@@ -48,13 +47,12 @@ public class RoomController {
         session.beginTransaction();
         Query<Room> query = session.createQuery("FROM Room" , Room.class);
         List<Room> rooms = query.list();
-        System.out.println(rooms);
         model.addAttribute("rooms",rooms);
         session.getTransaction().commit();
         return "allRooms";
     }
     @GetMapping("/booking/{id}")
-    public String showBookingPage(@PathVariable Long id, Model model) {
+        public String showBookingPage(@PathVariable Long id, Model model) {
         Session session = DBSession.getSession();
         session.beginTransaction();
         Room room = RoomDB.getRoomById(id);

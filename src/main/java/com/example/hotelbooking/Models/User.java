@@ -32,8 +32,5 @@ public class User {
     @Column(name = "mail")
     private String mail;
 
-    @Column(name = "password",length = 1000)
-    private String password;
-
 
 }
