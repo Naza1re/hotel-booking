@@ -28,7 +28,9 @@ public class UserController {
         session.beginTransaction();
         session.save(user);
         session.getTransaction().commit();
+        System.out.println();
         return "main";
+
     }
 
     @GetMapping("/allUsers")

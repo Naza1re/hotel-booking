@@ -28,7 +28,7 @@ public class ReservationsController {
         session.getTransaction().commit();
         return "main";
     }
-    @GetMapping("user/{id}/reservationsDetails")
+    @GetMapping("user/{id}/reservationsDetails/{id1}")
     public String getReservationDetails(@PathVariable Long id, Model model){
 
         Session session = DBSession.getSession();

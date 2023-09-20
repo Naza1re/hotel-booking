@@ -5,14 +5,17 @@
     <title>Title</title>
 </head>
 <body>
+<header th:insert="blogs/header :: header">
+</header>
 
-<span th:text="${reservation.room.number}"></span></p>
-<span th:text="${reservation.room.hotel.name}"></span></p>
-<span th:text="${reservation.date_of_departure}"></span></p>
-<span th:text="${reservation.arrival_date}"></span></p>
-<span th:text="${reservation.user.phone_Number}"></span></p>
-<span th:text="${reservation.user.mail}"></span></p>
-<span th:text="${reservation.user.name}"></span></p>
+<span th:text="${reservation.room.number}"></span>
+<span th:text="${reservation.room.description}"></span>
+<span th:text="${reservation.room.hotel.name}"></span>
+<span th:text="${reservation.date_of_departure}"></span>
+<span th:text="${reservation.arrival_date}"></span>
+<span th:text="${reservation.user.phone_Number}"></span>
+<span th:text="${reservation.user.mail}"></span>
+<span th:text="${reservation.user.name}"></span>
 
 
 </body>

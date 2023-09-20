@@ -79,7 +79,7 @@
         <td th:text="${reservation.arrival_date}"></td>
         <td th:text="${reservation.date_of_departure}"></td>
         <td th:text="${reservation.room.hotel.name}"></td>
-        <td><a th:href="@{/user/{id}/reservationsDetails(id=${reservation.id})}" class="btn-book">Детали заказа</a></td>
+        <td><a th:href="@{/user/{id1}/reservationsDetails/{id}(id1=${user.id},id=${reservation.id})}" class="btn-book">Детали заказа</a></td>
 
     </tr>
 </table>
